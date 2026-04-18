@@ -1,0 +1,15 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[user]
+	name = André Luiz
+	email = adventureandre@hotmail.com
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = false
+[credential]
+	helper = store

@@ -85,8 +85,8 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
 # Aliases úteis
-alias ls="eza --icons --group-directories-first"
-alias ll="eza -la --icons --group-directories-first --git"
-alias lt="eza --tree --icons --level=2"
+alias ls="eza --group-directories-first"
+alias ll="eza -la --group-directories-first --git"
+alias lt="eza --tree --level=2"
 alias cat="bat --style=auto"
 alias find="fd"

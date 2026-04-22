@@ -71,6 +71,29 @@ sudo apt update && sudo apt install -y \
     zsh \
     kubectx
 
+# 5b. Instalar kubens (pacote kubectx do Ubuntu não inclui kubens)
+if ! command -v kubens &>/dev/null; then
+    log "Instalando kubens..."
+    mkdir -p "$HOME/.local/bin"
+    KUBENS_VERSION="v0.11.0"
+    ARCH="$(uname -m)"
+    case "$ARCH" in
+        x86_64)  KUBENS_ARCH="x86_64" ;;
+        aarch64) KUBENS_ARCH="arm64" ;;
+        armv7l)  KUBENS_ARCH="armv7" ;;
+        *) warn "Arquitetura $ARCH não suportada para kubens"; KUBENS_ARCH="" ;;
+    esac
+    if [ -n "$KUBENS_ARCH" ]; then
+        curl -sSL "https://github.com/ahmetb/kubectx/releases/download/${KUBENS_VERSION}/kubens_${KUBENS_VERSION}_linux_${KUBENS_ARCH}.tar.gz" \
+            -o /tmp/kubens.tar.gz
+        tar xzf /tmp/kubens.tar.gz -C "$HOME/.local/bin" kubens
+        chmod +x "$HOME/.local/bin/kubens"
+        rm -f /tmp/kubens.tar.gz
+    fi
+else
+    log "kubens já instalado"
+fi
+
 # 6. Instalar Homebrew
 if ! command -v brew &>/dev/null; then
     log "Instalando Homebrew..."

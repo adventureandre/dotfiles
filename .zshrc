@@ -66,6 +66,10 @@ export PATH="$JAVA_HOME/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# Aliases projeto public-management (Sigep)
+alias legado='JAVA_HOME=~/.jdks/ms-11.0.30 PATH=~/.jdks/ms-11.0.30/bin:$PATH mvn -s .m2/settings.xml jetty:run -P jetty'
+alias legado-clean='JAVA_HOME=~/.jdks/ms-11.0.30 PATH=~/.jdks/ms-11.0.30/bin:$PATH mvn -s .m2/settings.xml clean install -DskipTests'
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

@@ -2,6 +2,11 @@
 
 set -e
 
+if [ "$EUID" -eq 0 ]; then
+    echo "Não rode este script com sudo. Rode como seu usuário normal."
+    exit 1
+fi
+
 echo "========================================="
 echo "  Instalando dotfiles - André Luiz"
 echo "========================================="
